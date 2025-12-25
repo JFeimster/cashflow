@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Cash Flow Automation | Cashflow Copilot</title>
+    <meta name="description" content="Empowering independent professionals and visionary entrepreneurs with AI-powered proactive cash flow automation. Streamline finances, predict future, and fuel growth.">
+    <meta name="keywords" content="cash flow automation, AI finance, fintech, small business finance, entrepreneur tools, cash flow management, financial planning, startup finance, intelligent automation, predictive analytics">
+    <meta property="og:title" content="Intelligent Cash Flow Automation | Cashflow Copilot">
+    <meta property="og:description" content="Empowering independent professionals and visionary entrepreneurs with AI-powered proactive cash flow automation. Streamline finances, predict future, and fuel growth.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cashflowcopilot.com">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a2e; /* Dark background */
+            color: #e0e0e0; /* Light gray text */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #d1d5db; /* Lighter text for headings */
+        }
+        .btn-primary {
+            background-color: #e94560; /* Vibrant accent red/pink */
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #b82a40;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #e94560;
+            border: 2px solid #e94560;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #e94560;
+            color: #ffffff;
+        }
+        .bg-gradient-tech {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+        }
+        .accent-text {
+            color: #e94560;
+        }
+        .border-accent {
+            border-color: #e94560;
+        }
+        .vibe-img-hero {
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .vibe-img-feature {
+            border-radius: 0.75rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        /* Auth Modal Specific Styles */
+        .auth-modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .auth-modal-content {
+            background-color: #2c2c4d;
+            margin: auto;
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+            position: relative;
+        }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.75rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-button:hover, .close-button:focus {
+            color: #e94560;
+            text-decoration: none;
+        }
+        .auth-tab-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: #3e3e5c;
+            color: #d1d5db;
+            transition: background-color 0.3s ease;
+        }
+        .auth-tab-button.active {
+            background-color: #e94560;
+            color: #ffffff;
+        }
+        .auth-tab-button:hover {
+            background-color: #e94560;
+            color: #ffffff;
+        }
+        .auth-form input[type="email"], .auth-form input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #4a4a6e;
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+        }
+        .auth-form button[type="submit"] {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            background-color: #e94560;
+            color: #ffffff;
+            transition: background-color 0.3s ease;
+        }
+        .auth-form button[type="submit"]:hover {
+            background-color: #b82a40;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 leading-normal tracking-wider bg-gradient-tech">
+
+    <!-- Header -->
+    <header class="p-6 md:px-16 flex justify-between items-center relative z-20">
+        <div class="flex items-center space-x-4">
+            <a href="#" class="text-3xl font-bold accent-text">Cashflow Copilot</a>
+        </div>
+        <nav class="hidden md:flex space-x-8 items-center">
+            <a href="#features" class="text-gray-300 hover:text-white transition duration-300">Features</a>
+            <a href="#pricing" class="text-gray-300 hover:text-white transition duration-300">Pricing</a>
+            <a href="#how-it-works" class="text-gray-300 hover:text-white transition duration-300">How It Works</a>
+            <a href="#faq" class="text-gray-300 hover:text-white transition duration-300">FAQ</a>
+            <button id="openAuthModal" class="btn-secondary">Sign In</button>
+        </nav>
+        <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-30 flex flex-col items-center justify-center space-y-8">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-300 hover:text-white focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <a href="#features" class="text-3xl text-gray-300 hover:text-white transition duration-300" onclick="toggleMobileMenu()">Features</a>
+        <a href="#pricing" class="text-3xl text-gray-300 hover:text-white transition duration-300" onclick="toggleMobileMenu()">Pricing</a>
+        <a href="#how-it-works" class="text-3xl text-gray-300 hover:text-white transition duration-300" onclick="toggleMobileMenu()">How It Works</a>
+        <a href="#faq" class="text-3xl text-gray-300 hover:text-white transition duration-300" onclick="toggleMobileMenu()">FAQ</a>
+        <button id="openAuthModalMobile" class="btn-primary text-2xl">Sign In</button>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative py-24 md:py-32 bg-black text-center">
+            <div class="relative z-10 max-w-4xl mx-auto px-6">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-white">
+                    Your <span class="accent-text">AI Co-Pilot</span> for Unstoppable Cash Flow.
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8">
+                    Stop guessing, start growing. Cashflow Copilot transforms your financial chaos into clarity with <span class="font-semibold accent-text">Intelligent Cash Flow Automation</span>.
+                </p>
+                <a href="#" class="btn-primary text-xl md:text-2xl uppercase tracking-wider">Secure Your Financial Future Now</a>
+                <p class="mt-4 text-sm text-gray-400">Join the ranks of visionary entrepreneurs thriving with AI-powered financial foresight.</p>
+            </div>
+        </section>
+
+        <!-- Problem/Solution Section -->
+        <section id="how-it-works" class="py-20 md:py-24 px-6 bg-gray-800 text-gray-200">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-white">The Harsh Reality: Cash Flow Kills Dreams.</h2>
+                <p class="text-lg md:text-xl leading-relaxed mb-12">
+                    Independent professionals and visionary entrepreneurs: you’re building empires, but <span class="font-semibold accent-text">cash flow is the silent killer</span>. A staggering 82% of small business failures stem from inadequate cash flow management. And a 2025 QuickBooks survey revealed that 43% of small businesses consider cash flow a problem, with 74% saying it's worsened or stayed the same. Late payments, unexpected costs, opaque financials – these aren't just headaches, they're existential threats. You need more than a spreadsheet; you need a co-pilot.
+                </p>
+                <div class="grid md:grid-cols-2 gap-12 items-center text-left">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-white">The Struggle is Real.</h3>
+                        <ul class="list-disc list-inside text-lg space-y-3">
+                            <li><span class="font-semibold accent-text">Late Payments:</span> Customers dragging their feet on invoices? It starves your business.</li>
+                            <li><span class="font-semibold accent-text">Opaque Forecasting:</span> Can't see tomorrow's finances? You're flying blind, risking everything.</li>
+                            <li><span class="font-semibold accent-text">Hidden Costs:</span> Unexpected expenses derail your growth path.</li>
+                            <li><span class="font-semibold accent-text">Time Drain:</span> Manual tracking is a black hole for your most valuable asset – time.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 text-white">The Cashflow Copilot Advantage.</h3>
+                        <p class="text-lg leading-relaxed mb-4">
+                            Enter Cashflow Copilot. We're leveraging the power of AI to give you unparalleled financial clarity and control. Financial organizations report an average <span class="font-semibold accent-text">22% improvement in operational efficiency</span> after adopting automation technologies. With AI-driven decision-making tools, early adopters are seeing <span class="font-semibold accent-text">profits increase by 15-20%</span>. This isn't just software; it's your strategic financial brain.
+                        </p>
+                        <a href="#features" class="btn-primary mt-4">See How It Works</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 md:py-24 px-6 bg-gray-900 text-gray-100">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-white">Unleash Your Financial Power.</h2>
+                <p class="text-lg md:text-xl text-gray-300 mb-16">
+                    Cashflow Copilot isn't just about managing money; it's about mastering your financial destiny. Our AI-powered platform delivers features engineered for your success.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Feature 1 -->
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-xl border border-accent hover:border-white transition-all duration-300">
+                        <div class="text-4xl accent-text mb-4">🚀</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Proactive Predictive Analytics</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            Anticipate cash flow gaps and opportunities before they hit. Our AI models predict future financial movements with precision, allowing you to make informed decisions, not reactive ones. No more surprises. (AI-driven decision-making tools projected to increase profits for early adopters by 15-20%).
+                        </p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-xl border border-accent hover:border-white transition-all duration-300">
+                        <div class="text-4xl accent-text mb-4">🔗</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Automated Reconciliation &amp; Invoicing</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            Reclaim hours lost to manual data entry. Cashflow Copilot automatically reconciles transactions and streamlines invoicing, ensuring accuracy and reducing human error by up to 60%. Get paid faster, effortlessly.
+                        </p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-xl border border-accent hover:border-white transition-all duration-300">
+                        <div class="text-4xl accent-text mb-4">📊</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Real-Time Financial Dashboard</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            Your money, your rules, real-time. Gain instant clarity into your income, expenses, and net position across all accounts. Make lightning-fast decisions based on always up-to-date information.
+                        </p>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-xl border border-accent hover:border-white transition-all duration-300">
+                        <div class="text-4xl accent-text mb-4">🛡️</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Smart Expense Optimization</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            Our AI identifies hidden cost savings and flags unnecessary expenditures, giving you the power to optimize your spending and boost your bottom line. Every dollar accounted for, every opportunity seized.
+                        </p>
+                    </div>
+                    <!-- Feature 5 -->
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-xl border border-accent hover:border-white transition-all duration-300">
+                        <div class="text-4xl accent-text mb-4">🔒</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Fortified Security &amp; Compliance</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            Your financial data is sacred. We employ enterprise-grade security and compliance protocols, so you can automate with absolute peace of mind. Trust your numbers; trust your future.
+                        </p>
+                    </div>
+                    <!-- Feature 6 -->
+                    <div class="bg-gray-800 p-8 rounded-lg shadow-xl border border-accent hover:border-white transition-all duration-300">
+                        <div class="text-4xl accent-text mb-4">📈</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Growth-Focused Reporting</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            Beyond just tracking, Cashflow Copilot generates actionable reports designed to highlight growth avenues and potential risks, transforming data into strategic insights for scaling your business.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 md:py-24 px-6 bg-gray-800 text-gray-100">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-white">Simple, Transparent Pricing.</h2>
+                <p class="text-lg md:text-xl text-gray-300 mb-16">
+                    Choose the plan that best fits your financial journey. Scale your success with Cashflow Copilot.
+                </p>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <!-- Pricing Card 1: Starter -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-xl border border-accent flex flex-col justify-between transform hover:scale-105 transition-all duration-300">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-4 accent-text">Starter</h3>
+                            <p class="text-gray-400 text-lg mb-6">Perfect for independent professionals getting started.</p>
+                            <div class="text-5xl font-extrabold text-white mb-8">
+                                $49<span class="text-xl text-gray-400 font-normal">/month</span>
+                            </div>
+                            <ul class="text-left space-y-3 text-lg text-gray-300 mb-10">
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Basic Predictive Analytics</li>
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Automated Reconciliation</li>
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Real-Time Dashboard</li>
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Standard Support</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn-primary text-xl w-full text-center">Choose Starter</a>
+                    </div>
+
+                    <!-- Pricing Card 2: Pro (Most Popular) -->
+                    <div class="bg-gradient-to-br from-gray-900 to-gray-700 p-8 rounded-lg shadow-2xl border-4 border-accent flex flex-col justify-between transform scale-105 hover:scale-110 transition-all duration-300 relative">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-e94560 text-white text-sm font-bold px-3 py-1 rounded-full">Most Popular</div>
+                        <div>
+                            <h3 class="text-3xl font-bold mb-4 text-white">Pro</h3>
+                            <p class="text-gray-300 text-lg mb-6">For growing businesses seeking advanced insights.</p>
+                            <div class="text-6xl font-extrabold text-white mb-8">
+                                $99<span class="text-xl text-gray-300 font-normal">/month</span>
+                            </div>
+                            <ul class="text-left space-y-3 text-lg text-gray-200 mb-10">
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <span class="font-semibold accent-text">Advanced</span> Predictive Analytics</li>
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Automated Reconciliation &amp; <span class="font-semibold accent-text">Invoicing</span></li>
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Real-Time Financial Dashboard</li>
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Smart Expense Optimization</li>
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <span class="font-semibold accent-text">Priority</span> Support</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn-primary text-xl w-full text-center">Choose Pro</a>
+                    </div>
+
+                    <!-- Pricing Card 3: Enterprise -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-xl border border-accent flex flex-col justify-between transform hover:scale-105 transition-all duration-300">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-4 accent-text">Enterprise</h3>
+                            <p class="text-gray-400 text-lg mb-6">Tailored for large teams and complex operations.</p>
+                            <div class="text-5xl font-extrabold text-white mb-8">
+                                Custom<span class="text-xl text-gray-400 font-normal">/quote</span>
+                            </div>
+                            <ul class="text-left space-y-3 text-lg text-gray-300 mb-10">
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <span class="font-semibold accent-text">All Pro Features</span></li>
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Dedicated Account Manager</li>
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Custom Integrations</li>
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Advanced Security &amp; Compliance</li>
+                                <li class="flex items-center"><svg class="w-6 h-6 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Onboarding &amp; Training</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn-secondary text-xl w-full text-center">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 md:py-24 bg-gray-700 text-center">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white">Ready to Own Your Financial Destiny?</h2>
+                <p class="text-xl md:text-2xl text-gray-300 mb-10">
+                    The future of finance is automated, intelligent, and proactive. Stop struggling with spreadsheets and start commanding your cash flow. 
+                </p>
+                <a href="#" class="btn-primary text-xl md:text-2xl uppercase tracking-wider">Get Started with Cashflow Copilot Today</a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 md:py-24 px-6 bg-gray-800 text-gray-200">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-white">Burning Questions? We've Got Answers.</h2>
+                <div class="space-y-6">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg accordion-item">
+                        <button class="flex justify-between items-center w-full text-left font-semibold text-xl text-white focus:outline-none accordion-header">
+                            <span>What exactly is AI-powered cash flow automation?</span>
+                            <svg class="w-6 h-6 transform accordion-icon transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content mt-4 text-lg text-gray-300 hidden">
+                            It's leveraging advanced Artificial Intelligence to analyze your financial data, predict future cash flows, automate routine tasks like invoicing and reconciliation, and identify potential risks or opportunities. It goes beyond simple accounting to provide proactive insights and control, improving operational efficiency by an average of 22% for organizations.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg accordion-item">
+                        <button class="flex justify-between items-center w-full text-left font-semibold text-xl text-white focus:outline-none accordion-header">
+                            <span>How does Cashflow Copilot ensure accuracy and reduce errors?</span>
+                            <svg class="w-6 h-6 transform accordion-icon transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content mt-4 text-lg text-gray-300 hidden">
+                            Our AI algorithms are designed to minimize manual input and cross-reference data sources, significantly reducing the chances of human error. Automated financial reporting tools have been shown to reduce human error by 60%. This means cleaner data and more reliable forecasts for your business.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg accordion-item">
+                        <button class="flex justify-between items-center w-full text-left font-semibold text-xl text-white focus:outline-none accordion-header">
+                            <span>Is my financial data secure with Cashflow Copilot?</span>
+                            <svg class="w-6 h-6 transform accordion-icon transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content mt-4 text-lg text-gray-300 hidden">
+                            Absolutely. We employ industry-leading encryption, multi-factor authentication, and adhere to stringent data privacy regulations. Your financial security is our top priority, ensuring peace of mind while you focus on growth.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg accordion-item">
+                        <button class="flex justify-between items-center w-full text-left font-semibold text-xl text-white focus:outline-none accordion-header">
+                            <span>How quickly can I see results from using Cashflow Copilot?</span>
+                            <svg class="w-6 h-6 transform accordion-icon transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content mt-4 text-lg text-gray-300 hidden">
+                            Many users report significant improvements in clarity and time savings within the first few weeks of implementation. Businesses typically achieve ROI within 6-12 months of implementing financial automation, often much faster for key benefits like reduced errors and improved forecasting. The immediate impact on your ability to make proactive decisions is often felt from day one.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 text-gray-400 text-center">
+        <div class="max-w-6xl mx-auto px-6">
+            <p>&copy; 2025 Cashflow Copilot. All rights reserved. Built for the future of finance.</p>
+            <div class="mt-6 space-x-6">
+                <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
+                <a href="#" class="hover:text-white transition duration-300">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="auth-modal flex">
+        <div class="auth-modal-content">
+            <span class="close-button" id="closeAuthModal">&times;</span>
+            <div class="flex justify-center mb-6 space-x-4">
+                <button id="showLogin" class="auth-tab-button active">Login</button>
+                <button id="showSignup" class="auth-tab-button">Sign Up</button>
+            </div>
+            
+            <div id="loginForm" class="auth-form">
+                <h3 class="text-2xl font-bold text-white text-center mb-6">Welcome Back.</h3>
+                <form>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit" class="btn-primary">Log In</button>
+                    <p class="text-center mt-4 text-gray-400 text-sm">
+                        <a href="#" class="hover:text-white accent-text">Forgot Password?</a>
+                    </p>
+                </form>
+            </div>
+
+            <div id="signupForm" class="auth-form hidden">
+                <h3 class="text-2xl font-bold text-white text-center mb-6">Join the Future.</h3>
+                <form>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Confirm Password" required>
+                    <button type="submit" class="btn-primary">Create Account</button>
+                    <p class="text-center mt-4 text-gray-400 text-sm">
+                        By signing up, you agree to our <a href="#" class="hover:text-white accent-text">Terms</a> and <a href="#" class="hover:text-white accent-text">Privacy Policy</a>.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
